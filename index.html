@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Jardin Doré – Restaurant</title>
+  <!-- Bootstrap 5 + Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Personnalisation du thème Bootstrap (restaurant) */
+    :root {
+      --bs-primary: #b5651d;
+      --bs-primary-rgb: 181, 101, 29;
+      --creme: #fdf8f1;
+      --brun: #3b2a1e;
+    }
+    body { font-family: 'Lato', sans-serif; background: var(--creme); color: var(--brun); }
+    h1, h2, h3, h5, .navbar-brand { font-family: 'Playfair Display', serif; }
+    section { scroll-margin-top: 70px; }
+
+    .navbar { background: rgba(59, 42, 30, .95); }
+    .navbar-brand { color: #f3c77a !important; font-size: 1.6rem; }
+    .nav-link { color: #f5e9d8 !important; }
+    .nav-link:hover, .nav-link.active { color: #f3c77a !important; }
+
+    .btn-primary { background: var(--bs-primary); border-color: var(--bs-primary); }
+    .btn-primary:hover { background: #8f4e14; border-color: #8f4e14; }
+
+    /* Section héros */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                  url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); }
+
+    .section-title { position: relative; padding-bottom: .75rem; margin-bottom: 2.5rem; }
+    .section-title::after {
+      content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+      width: 70px; height: 3px; background: var(--bs-primary);
+    }
+
+    /* Cartes du menu */
+    .menu-card { border: none; transition: transform .25s, box-shadow .25s; }
+    .menu-card:hover { transform: translateY(-6px); box-shadow: 0 1rem 2rem rgba(0,0,0,.15); }
+    .menu-card img { height: 220px; object-fit: cover; }
+    .price { color: var(--bs-primary); font-weight: 700; font-size: 1.2rem; }
+
+    .about-img { border-radius: 1rem; box-shadow: 0 1rem 2rem rgba(0,0,0,.2); }
+    .bg-brun { background: var(--brun); }
+    footer a { color: #f5e9d8; font-size: 1.4rem; }
+    footer a:hover { color: #f3c77a; }
+  </style>
+</head>
+<body>
+
+  <!-- 1. En-tête / Barre de navigation -->
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#accueil"><i class="bi bi-cup-hot"></i> Le Jardin Doré</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Ouvrir le menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#accueil">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="#apropos">À propos de nous</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 2. Section héros -->
+  <section id="accueil" class="hero d-flex align-items-center justify-content-center text-center text-white">
+    <div class="container">
+      <span class="badge bg-primary mb-3 px-3 py-2">Cuisine maison depuis 2008</span>
+      <h1 class="fw-bold mb-3">Une cuisine qui réchauffe le cœur</h1>
+      <p class="lead mb-4">Produits frais, saveurs authentiques et accueil chaleureux.</p>
+      <a href="#menu" class="btn btn-primary btn-lg px-5 rounded-pill">Découvrir le menu</a>
+    </div>
+  </section>
+
+  <!-- 3. Section menu (grille) -->
+  <section id="menu" class="py-5">
+    <div class="container">
+      <h2 class="text-center section-title">Notre Menu</h2>
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card menu-card h-100">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" class="card-img-top" alt="Bol de salade fraîche">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="card-title">Salade du Jardin</h5>
+                <span class="badge bg-success">Végé</span>
+              </div>
+              <p class="card-text flex-grow-1">Légumes de saison, avocat, quinoa et vinaigrette au citron.</p>
+              <p class="price mb-0">85 MAD</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card menu-card h-100">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" class="card-img-top" alt="Pizza au feu de bois">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="card-title">Pizza au feu de bois</h5>
+                <span class="badge bg-primary">Populaire</span>
+              </div>
+              <p class="card-text flex-grow-1">Pâte maison, sauce tomate, mozzarella fondante et basilic frais.</p>
+              <p class="price mb-0">110 MAD</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card menu-card h-100">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80" class="card-img-top" alt="Pancakes aux fruits rouges">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="card-title">Pancakes gourmands</h5>
+                <span class="badge bg-warning text-dark">Dessert</span>
+              </div>
+              <p class="card-text flex-grow-1">Pancakes moelleux, fruits rouges et sirop d'érable.</p>
+              <p class="price mb-0">60 MAD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Section À propos (2 colonnes) -->
+  <section id="apropos" class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80" class="img-fluid about-img" alt="Salle du restaurant">
+        </div>
+        <div class="col-md-6">
+          <h2 class="mb-4">À propos de nous</h2>
+          <p>Fondé en 2008, <strong>Le Jardin Doré</strong> est né d'une passion familiale pour la bonne cuisine. Nos chefs travaillent chaque jour avec des producteurs locaux pour proposer des plats savoureux, préparés avec des ingrédients frais et de saison.</p>
+          <p>Que ce soit pour un déjeuner rapide, un dîner en amoureux ou un repas entre amis, nous vous accueillons dans un cadre chaleureux et convivial.</p>
+          <div class="row text-center mt-4">
+            <div class="col-4"><h3 class="text-primary mb-0">15+</h3><small>ans d'expérience</small></div>
+            <div class="col-4"><h3 class="text-primary mb-0">40</h3><small>plats</small></div>
+            <div class="col-4"><h3 class="text-primary mb-0">4.8★</h3><small>avis clients</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Section Contact (formulaire) -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center section-title">Contactez-nous</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0 p-4">
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="nom" class="form-label">Nom</label>
+                  <input type="text" class="form-control" id="nom" placeholder="Votre nom" required>
+                  <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="nom@exemple.com" required>
+                  <div class="invalid-feedback">Veuillez entrer un email valide.</div>
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Votre message..." required></textarea>
+                  <div class="invalid-feedback">Veuillez écrire un message.</div>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Envoyer</button>
+                </div>
+              </div>
+            </form>
+            <div id="merci" class="alert alert-success mt-3 d-none">Merci ! Votre message a bien été envoyé.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Pied de page -->
+  <footer class="bg-brun text-light py-4">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-md-6 mb-3 mb-md-0">
+          &copy; 2026 Le Jardin Doré. Tous droits réservés.
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="me-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="me-3" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="TripAdvisor"><i class="bi bi-geo-alt-fill"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Validation Bootstrap du formulaire
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.classList.add('was-validated'); return; }
+      document.getElementById('merci').classList.remove('d-none');
+      this.reset(); this.classList.remove('was-validated');
+    });
+    // Ferme le menu mobile après un clic sur un lien
+    document.querySelectorAll('#nav .nav-link').forEach(link =>
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('nav');
+        if (nav.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(nav).hide();
+      })
+    );
+  </script>
+</body>
+</html>
